@@ -12,6 +12,8 @@ import javax.persistence.FetchType;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.ManyToMany;
+import javax.persistence.Table;
+
 import static javax.persistence.CascadeType.MERGE;
 import static javax.persistence.CascadeType.REFRESH;
 import javax.persistence.JoinTable;
@@ -19,8 +21,8 @@ import javax.persistence.JoinColumn;
 
 @ManagedBean(name="student")
 @RequestScoped
-
 @Entity
+@Table(name = "Student")
 public class Student extends Person {/**
 	 * 
 	 */

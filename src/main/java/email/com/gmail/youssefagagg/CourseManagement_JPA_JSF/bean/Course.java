@@ -17,6 +17,7 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 import javax.persistence.JoinColumn;
 import static javax.persistence.CascadeType.MERGE;
 import static javax.persistence.CascadeType.REFRESH;
@@ -25,6 +26,7 @@ import javax.persistence.ManyToMany;
 @ManagedBean(name = "course")
 @RequestScoped
 @Entity
+@Table(name = "Course")
 public class Course implements Serializable{
 	/**
 	 * 

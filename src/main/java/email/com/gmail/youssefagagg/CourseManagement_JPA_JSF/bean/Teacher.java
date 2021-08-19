@@ -4,11 +4,13 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
 @Entity
 @ManagedBean(name="teacher")
 @RequestScoped
+@Table(name="Teacher")
 public class Teacher extends Person{/**
 	 * 
 	 */
