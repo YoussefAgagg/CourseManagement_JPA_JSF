@@ -1,0 +1,29 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+<head>
+
+<title>add teacher</title>
+</head>
+<body>
+
+	<h2>Add Teacher:</h2>
+	<h:messages style="color:red;" showSummary="true" />
+
+	<h:form>
+		<h:outputLabel value="First Name:" for="firstName" />
+		<h:inputText value="#{teacher.firstName}" id="firstName"
+			required="true" />
+		<br />
+		<h:outputLabel value="Last Name:" for="lasttName" />
+		<h:inputText value="#{teacher.lastName}" id="lastName" required="true" />
+		<br />
+		<h:outputLabel value="designation:" for="designation" />
+		<h:inputText value="#{teacher.designation}" id="designation"
+			required="true" />
+		<br />
+		<h:commandButton value="Add" action="#{teacherServiceBean.addTeacher}" />
+	</h:form>
+
+</body>
+</html>

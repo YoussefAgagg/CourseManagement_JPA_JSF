@@ -1,0 +1,32 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+<head>
+
+<title>add course</title>
+</head>
+<body>
+
+	<h2>Add Course:</h2>
+	<h:messages style="color:red;" showSummary="true" />
+	<h:form>
+		<h:outputLabel value="Name:" for="name" />
+		<h:inputText value="#{course.name}" id="name" required="true" />
+		<br />
+		<h:outputLabel value="Credits:" for="credits" />
+		<h:inputText value="#{course.credits}" id="credits" required="true">
+			<f:validateLongRange minimum="1" />
+		</h:inputText>
+		<br />
+		<h:outputLabel value="Teacher:" for ="teach"/>
+		<h:selectOneMenu value="#{courseServiceBean.teacherid}" id="teach">
+			<f:selectItem itemValue="#{null}" itemLabel="-- select one --" />
+			<f:selectItems value="#{teacherServiceBean.teachers}" var="teacher"
+				itemValue="#{teacher.id}" itemLabel="#{teacher.firstName}" />
+		</h:selectOneMenu>
+		<br/>
+		<h:commandButton value="Add" action="#{courseServiceBean.addCourse}" />
+	</h:form>
+
+</body>
+</html>

@@ -1,0 +1,33 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>update teacher</title>
+</head>
+<body>
+<h:outputText  value="#{(teacherServiceBean.getTeacherById(param['id']))}"/>
+
+	<h2>update Teacher:</h2>
+
+	<h:form>
+	<h:inputHidden value="#{teacher.id}"></h:inputHidden>
+		<h:outputLabel value="First Name:" for="firstName" />
+		<h:inputText value="#{teacher.firstName}" id="firstName"
+			required="true" />
+
+		<br />
+		<h:outputLabel value="Last Name:" for="lastName" />
+		<h:inputText value="#{teacher.lastName}" id="lastName"  required="true"/>
+		<br />
+		<h:outputLabel value="designation:" for="designation" />
+		<h:inputText value="#{teacher.designation}" id="designation"
+			required="true"/>
+			<br/>
+
+		<h:commandButton value="Update"
+			action="#{teacherServiceBean.updateTeacher}" />
+	</h:form>
+
+</body>
+</html>

@@ -1,0 +1,61 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
+
+<body>
+	<h2>Teachers:</h2>
+
+	<h:messages style="color:red" />
+	<h:form>
+		<h:dataTable value="#{teacherServiceBean.teachers}" var="teacher">
+			<h:column>
+				<f:facet name="header">ID</f:facet>
+				<h:outputText value="#{teacher.id}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">first Name</f:facet>
+				<h:outputText value="#{teacher.firstName}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">Last Name</f:facet>
+				<h:outputText value="#{teacher.lastName}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">designation</f:facet>
+				<h:outputText value="#{teacher.designation}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">update</f:facet>
+
+				<h:commandButton value="update"
+					action="#{teacherServiceBean.updateButtonFromListTeacherPage(teacher.id)}">
+
+				</h:commandButton>
+			</h:column>
+			<h:column>
+				<f:facet name="header">delete</f:facet>
+
+				<h:commandButton value="delete"
+					action="#{teacherServiceBean.deleteButtonFromListTeacherPage(teacher.id)}">
+
+				</h:commandButton>
+			</h:column>
+		</h:dataTable>
+	</h:form>
+	<h:panelGroup rendered="#{(teacherServiceBean.teachers.size()) == 0}">
+		<h3>No teachers found</h3>
+	</h:panelGroup>
+
+	<c:if test="#{teacherServiceBean.teachers.size() > 0}">
+		<b>Total number of teachers <h:outputText
+				value="#{(teacherServiceBean.teachers.size())}" />
+		</b>
+	</c:if>
+	<br />
+	<h:button value="Add" outcome="addTeacher" />
+	<br />
+	<a href="index.xhtml">main</a>
+	<br />
+</body>
+</html>

@@ -1,0 +1,37 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+<head>
+ 
+<title>update course</title>
+</head>
+<body>
+<h:outputText  value="#{(courseServiceBean.getCourseById(param['id']))}"/>
+
+	<h2>Update Course:</h2>
+	<h:messages style="color:red;" showSummary="true" />
+	<h:messages style="color:red;" showDetail="true" />
+	<h:form>
+	<h:inputHidden value="#{course.id}"></h:inputHidden>
+		<h:outputLabel value="Name:" for="name" />
+		<h:inputText value="#{course.name}" id="name" required="true" />
+
+		<br />
+		<h:outputLabel value="Credits:" for="credits" />
+		<h:inputText value="#{course.credits}" id="credits" required="true">
+			<f:validateLongRange minimum="1" />
+		</h:inputText>
+		<br />
+		<h:outputLabel value="Teacher:" for="teach" />
+		<h:selectOneMenu value="#{courseServiceBean.teacherid}" id="teach">
+			<f:selectItem itemValue="#{null}" itemLabel="-- select one --" />
+			<f:selectItems value="#{teacherServiceBean.teachers}" var="teacher"
+				itemValue="#{teacher.id}" itemLabel="#{teacher.firstName}" />
+		</h:selectOneMenu>
+		<br />
+		<h:commandButton value="update"
+			action="#{courseServiceBean.updateCourse}" />
+	</h:form>
+
+</body>
+</html>

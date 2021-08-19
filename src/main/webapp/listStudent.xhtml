@@ -1,0 +1,62 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
+<body>
+<h2>Students:</h2>
+
+<h:messages style="color:red" />
+<h:form>
+	<h:dataTable value="#{studentServiceBean.students}" var="student">
+		<h:column>
+			<f:facet name="header">ID</f:facet>
+			<h:outputText value="#{student.id}" />
+		</h:column>
+		<h:column>
+			<f:facet name="header">first Name</f:facet>
+			<h:outputText value="#{student.firstName}" />
+		</h:column>
+		<h:column>
+			<f:facet name="header">Last Name</f:facet>
+			<h:outputText value="#{student.lastName}"  />
+		</h:column>
+		<h:column>
+			<f:facet name="header">courses</f:facet>
+			<h:outputText value="#{student.courses}"  />
+		</h:column>
+		<h:column>
+			<f:facet name="header">update</f:facet>
+
+			<h:commandButton value="update"
+				action="#{studentServiceBean.updateButtonFromListStudentPage(student.id)}">
+
+			</h:commandButton>
+		</h:column>
+		<h:column>
+			<f:facet name="header">delete</f:facet>
+
+			<h:commandButton value="delete"
+				action="#{studentServiceBean.deleteButtonFromListStudentPage(student.id)}">
+
+			</h:commandButton>
+		
+		</h:column>
+		
+	</h:dataTable>
+</h:form>
+<h:panelGroup rendered="#{(studentServiceBean.students.size()) == 0}">
+		<h3>No students found</h3>
+	</h:panelGroup>
+	
+	<c:if test="#{studentServiceBean.students.size() > 0}">
+		<b>Total number of students
+			<h:outputText value="#{(studentServiceBean.students.size())}"/>
+		</b>
+	</c:if>
+	<br/>
+<h:button value="Add" outcome="addStudent" />
+<br/>
+	<a href="index.xhtml">main</a>
+	<br/>
+</body>
+</html>
