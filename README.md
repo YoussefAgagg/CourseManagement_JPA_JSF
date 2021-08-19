@@ -11,6 +11,7 @@ the main purpose of this project is to use JPA to access database
 * JPA
 * JEE
 * jsf
+
 ## Dependencies
 
 1. Make sure you have [Java](http://www.java.com/) installed on your system, if not follow the vendor instructions for installing them on your operating system.
@@ -19,7 +20,7 @@ the main purpose of this project is to use JPA to access database
 ## Highlights
 * Database data definition scripts
 
-* Instructions for server configuration in Eclipse EE and NetBeans
+* Instructions for server configuration in Eclipse EE 
 
 
 
@@ -149,23 +150,6 @@ Download and extract [Tomcat 9](https://tomcat.apache.org/download-90.cgi)
 #### Eclipse setup server
 * Window -> Show View -> select **Servers** (if you do not find this option in the menu, select **Other**, and type **Servers** into the Filter textbox. Then, select **Servers** ).
 
-### NetBeans
-#### NetBeans setup server runtime
-* Go to Tools -> Servers ->
-* Select **Add server...**
-* Choose **Apache Tomcat or tomEE** name it 'tomcat 9'
-* choose **Next**
-* Server Location: browse to tomcat 9 folder location and select it
-* choose **finish**
-* after that select **platform** choose JavaPlatForm->jdk1.8
-
-#### configure project in NetBeans 
-* Right click on CourseManagementJDBCWebApp->Properties -> Build->Compile
-* Choose JavaPlatForm->jdk1.8
-
-#### add the server to the project in NetBeans
-* Right click on CourseManagementJDBCWebApp->Properties->Run
-* Choose Server:->tomcat 9
 
 ### Edit **persistence.xml** file in the project
 * in the project structure go to src/main/java/META-INF/persistence.xml and change the properties value **javax.persistence.jdbc.user** and **javax.persistence.jdbc.password** to your username and password for mysql
